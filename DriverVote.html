@@ -715,7 +715,7 @@
 
         function VoteClick(name){
             console.log(document.cookie);
-            if(document.cookie == "Voted=0")
+            if(document.cookie != "Voted=1")
             {
                 document.cookie = "Voted=1; expires=Fri, 20 Dec 2024 12:00:00 UTC; SameSite=None; Secure "; 
                 console.log(document.cookie);
