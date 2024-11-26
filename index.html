@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<head>
+    <title>F1 Fan Favourites</title>
+    <link rel="icon" type="image/x-icon" href="Assets/favicon/F1-logo_optimized.png">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONT IMPORTING -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+</head>
+
+<body>
+    <h1 class="Header">F1 Fan Favourites</h1>
+
+    <ul>
+        <li><a href="index.html"> Home </a></li>
+        <li><a href="DriverVote.html"> All Drivers </a></li>
+        <li><a href="https://www.w3schools.com/css"> Historic Driver vote </a></li>
+        
+    </ul>
+
+    <div style="background-color: black; padding: 10pt; margin-bottom: 40px;"> <br> </div>
+
+    <div scroll="no" style="overflow:hidden">
+        
+        <div class="main">
+            <h2>Vote for your favourite driver!</h2>
+            <p class="roboto-light">F1 is a sport fueled by fans, this was seen with the introduction of the 
+            driver of the day system, where fans were able to vote for who they think the best driver in a race is,
+            however, I feel this system has become a popularity contest. as people vote for their favourite driver rather than the driver who did the best race, so I hope that
+            in creating this site it means the popularity contest will occur here and leave the driver of the day to its intended purpose. 
+            <br> <br> Votes will reset at the end of the season to adjust for driver and team changes <br> historic drivers are planned in a future roadmap</p>
+            
+            <div class="PC">
+                <br style="margin: 40pt;">
+                <button type="button" onclick="Vote();" class="Vote">Vote!</button>
+            </div>
+            <div class="Mobile">
+                <br style="margin: 10pt;">
+                
+            </div>
+        </div>
+        <div class="right">
+            <h2>Current top voted driver</h2>
+            <img id="DriverImage" class="DriverProfile" src="Assets/Krita/Square/BlankDriver.png" alt="Max">
+            
+        </div>
+        <div class="Mobile">
+            <div class="main">
+                <br style="margin: 10pt;">
+                <button type="button" onclick="Vote();" class="Vote">Vote!</button>
+            </div>
+            
+        </div>
+        
+
+        
+        
+    </div>
+
+    <script>
+        let array = [];
+
+        function Vote(){
+            location.href = "DriverVote.html";
+        }
+    </script>
+
+    <script type="module">
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+        
+
+
+        
+        const firebaseConfig = {
+        apiKey: API_KEY,
+        authDomain: "f1drivervotecompsci.firebaseapp.com",
+        databaseURL: "https://f1drivervotecompsci-default-rtdb.firebaseio.com",
+        projectId: "f1drivervotecompsci",
+        storageBucket: "f1drivervotecompsci.firebasestorage.app",
+        messagingSenderId: "149336921755",
+        appId: "1:149336921755:web:7661f67de87ca3f64a583e",
+        measurementId: "G-CY0Q9FYXZB"
+        };
+    
+        
+        const app = initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig);
+        const { get, ref } = firebase.database();
+        const analytics = getAnalytics(app);
+        
+        const database = firebase.database();
+        const AlbonRef = database.ref('AALB');
+
+        function DriverVote2(name){
+            const DriverRef = database.ref(name);
+            DriverRef.on('value', (snapshot) => {
+
+            const count = snapshot.val();
+
+            return count;
+
+            });
+        }
+
+
+        function DriverVote3(name, callback) {
+  const DriverRef = database.ref(name);
+  return new Promise((resolve, reject) => {
+    DriverRef.on('value', (snapshot) => {
+      const count = snapshot.val();
+      array.push(count);
+      resolve(count); // Resolve the promise with the data
+    }, (error) => {
+      reject(error); // Reject the promise if there's an error
+    });
+  });
+}
+
+function AssignDrivers(val) {
+  DriverVote3(val).then((count) => {
+    console.log(val, count);
+    console.log(parseInt(count, 10));
+    // You can return a value here if needed
+    return 1; 
+  }).catch((error) => {
+    console.error("Error reading data:", error);
+  });
+}
+
+
+
+        let MVER = AssignDrivers("MVER");
+        let SPER = AssignDrivers("SPER");
+        let LHAM = AssignDrivers("LHAM");
+        let GRUS = AssignDrivers("GRUS");
+        let CLEC = AssignDrivers("CLEC");
+        let CSAI = AssignDrivers("CSAI");
+        let LNOR = AssignDrivers("LNOR");
+        let OPIA = AssignDrivers("OPIA");
+        let FALO = AssignDrivers("FALO");
+        let LSTR = AssignDrivers("LSTR");
+        let PGAS = AssignDrivers("PGAS");
+        let EOCO = AssignDrivers("EOCO");
+        let AALB = AssignDrivers("AALB");
+        let LSAR = AssignDrivers("LSAR");
+        let YTSU = AssignDrivers("YTSU");
+        let DRIC = AssignDrivers("DRIC");
+        let VBOT = AssignDrivers("VBOT");
+        let GZHO = AssignDrivers("GZHO");
+        let NHUL = AssignDrivers("NHUL");
+        let KMAG = AssignDrivers("KMAG");
+
+        let x;
+
+        MVER = AssignDrivers("MVER");
+
+        //DriverVote3("MVER", (count) => {
+
+//console.log("Vote count:", count);
+//MVER = count;
+
+//});
+//;
+
+function TopDriver(name){
+            document.getElementById("DriverImage").src = "Assets/Krita/Square/"+name+".png";
+        }
+//}
+function MaxDriver(bleh){
+            switch(bleh){
+            case 1:
+                TopDriver("MVER");
+                
+                break;
+            case 2:
+                TopDriver("SPER");
+                
+                break;
+            case 3:
+                TopDriver("LHAM");
+                
+                break;
+            case 4:
+                TopDriver("GRUS");
+                
+                break;
+            case 5:
+                TopDriver("CLEC");
+                
+                break;
+            case 6:
+                TopDriver("CSAI");
+                
+                break;
+            case 7:
+                TopDriver("LNOR");
+                
+                break;
+            case 8:
+                TopDriver("OPIA");
+               
+                break;
+            case 9:
+                TopDriver("FALO");
+                
+                break;
+            case 10:
+                TopDriver("LSTR");
+                
+                break;
+            case 11:
+                TopDriver("PGAS");
+                
+                break;
+            case 12:
+                TopDriver("EOCO");
+               
+                break;
+            case 13:
+                TopDriver("AALB");
+               
+                break;
+            case 14:
+                TopDriver("LSAR");
+             
+                break;
+            case 15:
+                TopDriver("YTSU");
+             
+                break;
+            case 16:
+                TopDriver("DRIC");
+             
+                break;
+            case 17:
+                TopDriver("VBOT");
+             
+                break;
+            case 18:
+                TopDriver("GZHO");
+            
+                break;
+            case 19:
+                TopDriver("NHUL");
+              
+                break;
+            case 20:
+                TopDriver("KMAG");
+                
+                break;
+            default:
+                TopDriver("MVER");
+                x=13;
+                break;
+            }
+        }
+
+        
+
+
+
+    
+
+
+        
+        
+        function Loop(){
+            if(array[20] == undefined)
+            {
+                console.log(array[0]);
+                window.setTimeout(Loop, 1000);
+                
+            }
+            else{
+                console.log(array);
+                let arr = array;
+                console.log(arr);
+
+                const integerArray = arr.map(element => parseInt(element));
+
+
+                let max = integerArray[0];
+                for (let i = 1; i < integerArray.length; i++) {
+                if (integerArray[i] > max) {
+                    max = integerArray[i];
+                }
+                }
+                console.log("MAX?: " + max);
+
+
+                console.log(array.indexOf(max));
+                MaxDriver(array.indexOf(max));
+            }
+        }
+        
+
+        Loop();
+
+        function DriverVote(name) {
+            const DriverRef = database.ref(name);
+            return new Promise((resolve, reject) => {
+            DriverRef.on('value', (snapshot) => {
+                const count = snapshot.val();
+                resolve(count); // Resolve the promise with the data
+                
+            }, (error) => {
+                reject(error); // Reject the promise if there's an error
+            });
+        });
+    }
+        
+        
+
+        
+
+    </script>
+
+    
+        
+
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+body{
+    font-family: Roboto;
+}
+
+h1{
+    font-family: Roboto;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    
+}
+table{
+    width: 100%;
+    table-layout:fixed;
+
+    
+
+}
+
+.Header{
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+
+    text-align: center;
+}
+
+.main {
+    float: auto;
+    margin: auto;
+    width: 90%;
+    padding: 0 0px;
+}
+
+.right {
+    background-color: #f3f3f3;
+    float: right;
+    margin-right: 50px;
+    width: 30%;
+    padding: 15px;
+    margin-top: 7px;
+    text-align: center;
+}
+
+button{
+    background-color: #ff1e1e;
+    border: none;
+    color: #fff;
+    width: 100px;
+    height: 50px;
+    vertical-align:top;
+    text-align: center;
+    align-self: center;
+}
+
+.centerButton{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.buttonContainer{
+    position: relative;
+}
+.center {
+    margin:auto;
+    text-align: center;
+}
+
+button:hover{
+    
+    background-color: #6c0000;
+    color: #ffffff;
+    border: none;
+    width: 105px;
+    height: 55px;
+    text-align: center;
+    align-self: center;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ff1e1e;
+}
+
+li{
+    float: left;
+}
+
+li a{
+    display: block;
+    padding: 14px 16px;
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+
+    
+}
+
+li a:hover{
+    background-color: #6c0000;
+}
+
+.DriverProfile{
+    max-width:100%;height:auto;
+}
+
+.PC{
+    display: block;
+}
+
+
+    .Mobile{
+        display: none;
+        line-height: 0%;
+    }
+
+
+@media only screen and (max-width: 1300px) {
+    /* For mobile phones: */
+    .menu{
+        width: 100%;
+    }
+    .main{
+        width: 95%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .right{
+        width: 98%;
+        margin: auto;
+    }
+    .DriverProfile{
+        width: 70%;
+        
+    }
+    .Vote{
+        text-align: center;
+        margin: 10px auto;
+        display: block;
+    }
+
+    .PC{
+        display: none;
+    }
+
+    .Mobile{
+        display: block;
+    }
+}
+
+
+
+
+
+
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.roboto-thin-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.roboto-light-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.roboto-medium-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.roboto-bold-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.roboto-black-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}

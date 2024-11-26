@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+<head>
+    <title>F1 Fan Favourites</title>
+    <link rel="icon" type="image/x-icon" href="Assets/favicon/F1-logo_optimized.png">
+    <link rel="stylesheet" href="DriverTableStyle.css">
+
+    <!-- FONT IMPORTING -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    
+
+</head>
+
+<body>
+    <h1 class="Header">Driver Votes</h1>
+
+    <ul>
+        <li><a href="index.html"> Home </a></li>
+        <li><a href="DriverVote.html"> All Drivers </a></li>
+        <li><a href="https://www.w3schools.com/css"> Historic Driver vote </a></li>
+        
+    </ul>
+
+    <div style="background-color: black; padding: 10pt; margin-bottom: 40px;"> <br> </div>
+
+    <div scroll="no" style="overflow:hidden">
+        
+        <div id="table" class="main" style="background-color: #f1f1f1; padding: 10px;">
+            
+
+            <br>
+
+            <div class="PC">
+
+            
+
+            <table>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <img class="DriverProfile" src="Assets/Krita/Square/MVER.png" alt="Max">
+                        <p>Verstappen</p>
+                        <p id="MVER">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="MVER_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;">
+                        </div>
+                        
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/SPER.png" alt="Max">
+                        <p>Perez</p>
+                        <p id="SPER">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="SPER_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;">
+                        </div>
+                    </td>
+                    
+                    <!--<tr class="Mobile"> </tr>-->
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/CLEC.png" alt="Max">
+                        <p>Leclerc</p>
+                        <p id="CLEC">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="CLEC_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/CSAI.png" alt="Max">
+                        <p>Sainz</p>
+                        <p id="CSAI">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="CSAI_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+
+                    <!--<tr class="Mobile"> </tr>-->
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/LHAM.png" alt="Max">
+                        <p>Hamilton</p>
+                        <p id="LHAM">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="LHAM_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/GRUS.png" alt="Max">
+                        <p>Russel</p>
+                        <p id="GRUS">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="GRUS_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+
+                    <!--<tr class="Mobile"> </tr>-->
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/LNOR.png" alt="Max">
+                        <p>Norris</p>
+                        <p id="LNOR">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="LNOR_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/OPIA.png" alt="Max">
+                        <p>Piastri</p>
+                        <p id="OPIA">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="OPIA_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+
+                    <!--<tr class="Mobile"> </tr>-->
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/FALO.png" alt="Max">
+                        <p>Alonso</p>
+                        <p id="FALO">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="FALO_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/LSTR.png" alt="Max">
+                        <p>Stroll</p>
+                        <p id="LSTR">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="LSTR_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                </tr>
+                
+                <tr >
+                    
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/AALB.png" alt="Max">
+                        <p>Albon</p>
+                        <p id="AALB">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="AALB_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/LSAR.png" alt="Max">
+                        <p>Sargent</p>
+                        <p id="LSAR">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="LSAR_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+
+                    <!--<tr class="Mobile"> </tr>-->
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/PGAS.png" alt="Max">
+                        <p>Gasly</p>
+                        <p id="PGAS">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="PGAS_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/EOCO.png" alt="Max">
+                        <p>Ocon</p>
+                        <p id="EOCO">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="EOCO_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+
+                    <!--<tr class="Mobile"> </tr>-->
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/YTSU.png" alt="Max">
+                        <p>Tsunoda</p>
+                        <p id="YTSU">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="YTSU_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/DRIC.png" alt="Max">
+                        <p>Riccardo</p>
+                        <p id="DRIC">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="DRIC_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+
+                    <!--<tr class="Mobile"> </tr>-->
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/VBOT.png" alt="Max">
+                        <p>Bottas</p>
+                        <p id="VBOT">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="VBOT_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/GZHO.png" alt="Max">
+                        <p>Guanyu</p>
+                        <p id="GZHO">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="GZHO_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+
+                    <!--<tr class="Mobile"> </tr> -->
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/NHUL.png" alt="Max">
+                        <p>Hülkenberg</p>
+                        <p id="NHUL">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="NHUL_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/KMAG.png" alt="Max">
+                        <p>Magnussen</p>
+                        <p id="KMAG">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 5pt;">
+                                <button id="KMAG_B">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 20pt;"></div>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+
+        <div class="Mobile">
+
+            
+
+            <table>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <img class="DriverProfile" src="Assets/Krita/Square/MVER.png" alt="Max">
+                        <p>Verstappen</p>
+                        <p id="MVER1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="MVER_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;">
+                        </div>
+                        
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/SPER.png" alt="Max">
+                        <p>Perez</p>
+                        <p id="SPER1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="SPER_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;">
+                        </div>
+                    </td>
+                    
+                    <tr class="Mobile"> </tr>
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/CLEC.png" alt="Max">
+                        <p>Leclerc</p>
+                        <p id="CLEC1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="CLEC_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/CSAI.png" alt="Max">
+                        <p>Sainz</p>
+                        <p id="CSAI1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="CSAI_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+
+                    <tr class="Mobile"> </tr>
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/LHAM.png" alt="Max">
+                        <p>Hamilton</p>
+                        <p id="LHAM1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="LHAM_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/GRUS.png" alt="Max">
+                        <p>Russel</p>
+                        <p id="GRUS1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="GRUS_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+
+                    <tr class="Mobile"> </tr>
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/LNOR.png" alt="Max">
+                        <p>Norris</p>
+                        <p id="LNOR1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="LNOR_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/OPIA.png" alt="Max">
+                        <p>Piastri</p>
+                        <p id="OPIA1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="OPIA_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+
+                    <tr class="Mobile"> </tr>
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/FALO.png" alt="Max">
+                        <p>Alonso</p>
+                        <p id="FALO1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="FALO_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/LSTR.png" alt="Max">
+                        <p>Stroll</p>
+                        <p id="LSTR1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="LSTR_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                </tr>
+                
+                <tr >
+                    
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/AALB.png" alt="Max">
+                        <p>Albon</p>
+                        <p id="AALB1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="AALB_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/LSAR.png" alt="Max">
+                        <p>Sargent</p>
+                        <p id="LSAR1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="LSAR_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+
+                    <tr class="Mobile"> </tr>
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/PGAS.png" alt="Max">
+                        <p>Gasly</p>
+                        <p id="PGAS1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="PGAS_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/EOCO.png" alt="Max">
+                        <p>Ocon</p>
+                        <p id="EOCO1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="EOCO_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+
+                    <tr class="Mobile"> </tr>
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/YTSU.png" alt="Max">
+                        <p>Tsunoda</p>
+                        <p id="YTSU1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="YTSU_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/DRIC.png" alt="Max">
+                        <p>Riccardo</p>
+                        <p id="DRIC1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="DRIC_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+
+                    <tr class="Mobile"> </tr>
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/VBOT.png" alt="Max">
+                        <p>Bottas</p>
+                        <p id="VBOT1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="VBOT_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/GZHO.png" alt="Max">
+                        <p>Guanyu</p>
+                        <p id="GZHO1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="GZHO_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+
+                    <tr class="Mobile"> </tr> 
+
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/NHUL.png" alt="Max">
+                        <p>Hülkenberg</p>
+                        <p id="NHUL1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="NHUL_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                    <td>
+                        <div class="center">
+                        <img class="DriverProfile" src="Assets/Krita/Square/KMAG.png" alt="Max">
+                        <p>Magnussen</p>
+                        <p id="KMAG1">Votes: 0</p>
+                        <div class="buttonContainer">
+                            <div class="centerButton">
+                                <br style="margin: 25pt;">
+                                <button id="KMAG_B1">Vote</button>
+                            </div>
+                        </div>
+                        <br style="margin-bottom: 50pt;"></div>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+
+
+
+        </div>
+
+    </div>
+
+    <script type="module">
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+        
+        
+        const firebaseConfig = {
+        apiKey: API_KEY,
+        authDomain: "f1drivervotecompsci.firebaseapp.com",
+        databaseURL: "https://f1drivervotecompsci-default-rtdb.firebaseio.com",
+        projectId: "f1drivervotecompsci",
+        storageBucket: "f1drivervotecompsci.firebasestorage.app",
+        messagingSenderId: "149336921755",
+        appId: "1:149336921755:web:7661f67de87ca3f64a583e",
+        measurementId: "G-CY0Q9FYXZB"
+        };
+    
+        
+        const app = initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig);
+        
+        const analytics = getAnalytics(app);
+        
+        const database = firebase.database();
+        const AlbonRef = database.ref('AALB');
+
+        DriverVote("MVER");
+        DriverVote("SPER");
+        DriverVote("LHAM");
+        DriverVote("GRUS");
+        DriverVote("CLEC");
+        DriverVote("CSAI");
+        DriverVote("LNOR");
+        DriverVote("OPIA");
+        DriverVote("FALO");
+        DriverVote("LSTR");
+        DriverVote("PGAS");
+        DriverVote("EOCO");
+        DriverVote("AALB");
+        DriverVote("LSAR");
+        DriverVote("YTSU");
+        DriverVote("DRIC");
+        DriverVote("VBOT");
+        DriverVote("GZHO");
+        DriverVote("NHUL");
+        DriverVote("KMAG");
+        
+        function UpdateText(count, name){
+            document.getElementById(name).textContent = "Votes: "+count;
+            document.getElementById(name+"1").textContent = "Votes: "+count;
+        }
+
+        function DriverVote(name){
+            const DriverRef = database.ref(name);
+            DriverRef.on('value', (snapshot) => {
+
+            const count = snapshot.val();
+
+            UpdateText(count, name);
+
+            });
+        }
+
+        function VoteClick(name){
+            const DriverRef = database.ref(name);
+            DriverRef.transaction(function(currentCount) {
+            
+                if (currentCount === null) {
+                    return 1;
+                } else {
+                    return currentCount + 1;
+                }
+            }, function(error, committed, snapshot) {
+                if (error) {
+                    console.error('Transaction failed: ' + error);
+                } else if (committed) {
+                    console.log('Transaction committed!');
+                UpdateText(snapshot.val(), name);
+                }
+
+            });
+
+        }
+
+        const voteButtons = document.getElementById('table');
+        //VoteClick(event.target.id.substring(0, 4))
+        voteButtons.addEventListener('click', function(){VoteClick(event.target.id.substring(0, 4))});
+
+        
+
+    </script>
+</body>
+
+</html>
