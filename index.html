@@ -74,7 +74,12 @@
             location.href = "DriverVote.html";
         }
 
-        let key =secrets.API_KEY;
+        require('dotenv').config();
+
+        // Access environment variables
+        const apiKey = process.env.API_KEY;
+        
+        
     </script>
 
     <script type="module">
@@ -86,7 +91,7 @@
 
         
         const firebaseConfig = { 
-        apiKey: key,
+        apiKey: apiKey,
         authDomain: "f1drivervotecompsci.firebaseapp.com",
         databaseURL: "https://f1drivervotecompsci-default-rtdb.firebaseio.com",
         projectId: "f1drivervotecompsci",
