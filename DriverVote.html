@@ -748,8 +748,12 @@
         //VoteClick(event.target.id.substring(0, 4))
         voteButtons.addEventListener('click', function(){VoteClick(event.target.id.substring(0, 4))});
 
-        if(document.cookie == null)
+        console.log(document.cookie);
+        if(document.cookie.includes("Voted")){
             ClearCookie();
+            console.log("Cookie Monster");
+        }
+            
 
     </script>
 
