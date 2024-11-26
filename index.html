@@ -73,13 +73,6 @@
         function Vote(){
             location.href = "DriverVote.html";
         }
-
-        //require('dotenv').config();
-
-        // Access environment variables
-        
-        
-        
     </script>
 
     <script type="module">
@@ -87,8 +80,10 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
         
+
+
         
-        const firebaseConfig = { 
+        const firebaseConfig = {
         apiKey: "AIzaSyBzPY1zoQPbfejwj1AlY_vdEJpsm6-CYzo",
         authDomain: "f1drivervotecompsci.firebaseapp.com",
         databaseURL: "https://f1drivervotecompsci-default-rtdb.firebaseio.com",
@@ -97,7 +92,7 @@
         messagingSenderId: "149336921755",
         appId: "1:149336921755:web:7661f67de87ca3f64a583e",
         measurementId: "G-CY0Q9FYXZB"
-            };
+        };
     
         
         const app = initializeApp(firebaseConfig);
