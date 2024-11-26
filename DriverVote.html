@@ -717,7 +717,7 @@
             console.log(document.cookie);
             if(document.cookie == "Voted=0")
             {
-                document.cookie = "Voted=1; expires=Fri, 20 Dec 2024 12:00:00 UTC"; 
+                document.cookie = "Voted=1; expires=Fri, 20 Dec 2024 12:00:00 UTC; SameSite=None; Secure "; 
                 console.log(document.cookie);
                 const DriverRef = database.ref(name);
                 DriverRef.transaction(function(currentCount) {
@@ -755,7 +755,7 @@
 
     <script>
         function ClearCookie(){
-            document.cookie = "Voted=0; expires=Fri, 20 Dec 2024 12:00:00 UTC"; 
+            document.cookie = "Voted=0; expires=Fri, 20 Dec 2024 12:00:00 UTC; SameSite=None; Secure"; 
         }
     </script>
 </body>
