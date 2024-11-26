@@ -77,7 +77,7 @@
         //require('dotenv').config();
 
         // Access environment variables
-        const apiKey = process.env.API_KEY;
+        
         
         
     </script>
@@ -91,7 +91,7 @@
 
         
         const firebaseConfig = { 
-        apiKey: apiKey,
+        apiKey: process.env.API_KEY,
         authDomain: "f1drivervotecompsci.firebaseapp.com",
         databaseURL: "https://f1drivervotecompsci-default-rtdb.firebaseio.com",
         projectId: "f1drivervotecompsci",
