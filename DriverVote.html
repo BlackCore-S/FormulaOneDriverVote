@@ -653,9 +653,9 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
         
-        let key = "AIzaSyBzPY1zoQPbfejwj1AlY_vdEJpsm6-CYzo";
+        
         const firebaseConfig = {
-        apiKey: key,
+        apiKey: "AIzaSyBzPY1zoQPbfejwj1AlY_vdEJpsm6-CYzo",
         authDomain: "f1drivervotecompsci.firebaseapp.com",
         databaseURL: "https://f1drivervotecompsci-default-rtdb.firebaseio.com",
         projectId: "f1drivervotecompsci",
@@ -700,6 +700,8 @@
             document.getElementById(name+"1").textContent = "Votes: "+count;
         }
 
+
+
         function DriverVote(name){
             const DriverRef = database.ref(name);
             DriverRef.on('value', (snapshot) => {
@@ -712,15 +714,20 @@
         }
 
         function VoteClick(name){
-            const DriverRef = database.ref(name);
-            DriverRef.transaction(function(currentCount) {
+            console.log(document.cookie);
+            if(document.cookie == "Voted=0")
+            {
+                document.cookie = "Voted=1; expires=Fri, 20 Dec 2024 12:00:00 UTC"; 
+                console.log(document.cookie);
+                const DriverRef = database.ref(name);
+                DriverRef.transaction(function(currentCount) {
             
                 if (currentCount === null) {
                     return 1;
                 } else {
                     return currentCount + 1;
                 }
-            }, function(error, committed, snapshot) {
+                }, function(error, committed, snapshot) {
                 if (error) {
                     console.error('Transaction failed: ' + error);
                 } else if (committed) {
@@ -728,7 +735,12 @@
                 UpdateText(snapshot.val(), name);
                 }
 
-            });
+                });
+            }
+            else{
+                console.log("Already Voted");
+            }
+
 
         }
 
@@ -736,8 +748,15 @@
         //VoteClick(event.target.id.substring(0, 4))
         voteButtons.addEventListener('click', function(){VoteClick(event.target.id.substring(0, 4))});
 
-        
+        if(document.cookie == null)
+            ClearCookie();
 
+    </script>
+
+    <script>
+        function ClearCookie(){
+            document.cookie = "Voted=0; expires=Fri, 20 Dec 2024 12:00:00 UTC"; 
+        }
     </script>
 </body>
 
