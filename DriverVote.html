@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    <div class="Fixed">
     <h1 class="Header">Driver Votes</h1>
 
     <ul>
@@ -29,9 +30,9 @@
         
     </ul>
 
-    <div style="background-color: black; padding: 10pt; margin-bottom: 40px;"> <br> </div>
-
-    <div scroll="no" style="overflow:hidden">
+    <div style="background-color: black; padding: 10pt;"> <br> </div>
+    </div>
+    <div scroll="no" style="overflow:hidden; margin-top: 210px;">
         
         <div id="table" class="main" style="background-color: #f1f1f1; padding: 10px;">
             
@@ -715,7 +716,7 @@
 
         function VoteClick(name){
             console.log(document.cookie);
-            if(document.cookie != "Voted=1")
+            if(document.cookie == "Voted=0")
             {
                 document.cookie = "Voted=1; expires=Fri, 20 Dec 2024 12:00:00 UTC; SameSite=None; Secure "; 
                 console.log(document.cookie);
